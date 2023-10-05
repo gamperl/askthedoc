@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="application-name" content="AskTheDoc"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+		<title>AskTheDoc</title>
+
+		<script type="module">
+
+			async function scrapeDoc() {
+				const articleUrl = document.getElementById('zendeskArticleUri').value;
+				const openAIAPIKey = document.getElementById('openAIAPIKey').value;
+
+				if (!articleUrl || !openAIAPIKey) {
+					console.log('missing input');
+					return;
+				}
+
+				sessionStorage.setItem("zendeskArticleUri", articleUrl);
+				sessionStorage.setItem("openAIAPIKey", openAIAPIKey);
+
+				const articles = await scrapePage(document.getElementById('zendeskArticleUri').value);
+				await addEmbeddings(articles, openAIAPIKey);
+				localStorage.setItem("articles", JSON.stringify(articles));
+
+				console.log('done')
+			}
+			async function scrapePage(url) {
+				const articles = [];
+				console.log('scraping', url);
+
+				const response = await fetch(url, { mode: 'cors' });
+				const json = await response.json();
+
+				if (typeof json !== "object" || json === null || !Array.isArray(json.articles)) {
+					console.log('error loading articles');
+					return;
+				}
+
+				// TODO: split articles into chunks of more than 500 characters
+				articles.push(...json.articles
+					.filter(article => typeof article.body === 'string' && article.body.length < 8000)
+					.map(article => ({
+						"id": article.id,
+						"title": article.title,
+						"body": article.body,
+						"url": article.url
+					}))
+				);
+
+				if (typeof json.next_page === 'string') {
+					articles.push(...await scrapePage(json.next_page));
+				}
+
+				return articles;
+			}
+
+			async function addEmbeddings(articles, apiKey) {
+				await Promise.all(articles.map(async article => {
+					article.embedding = await getEmbedding(article.body, apiKey);
+				}));
+			}
+
+			async function getEmbedding(content, apiKey) {
+				const response = await fetch('https://api.openai.com/v1/embeddings', {
+					method: 'POST',
+					mode: 'cors',
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${apiKey}`
+					},
+					body: JSON.stringify({
+						'input': content,
+						'model': 'text-embedding-ada-002'
+					})
+				});
+				const json = await response.json();
+				return json.data[0].embedding.slice();
+			}
+
+			function cosinusDistance(vecA, vecB) {
+				const normA = Math.sqrt(vecA.reduce((acc, val) => acc + val ** 2, 0));
+				const normB = Math.sqrt(vecB.reduce((acc, val) => acc + val ** 2, 0));
+				const AdotB = vecA.reduce((acc, val, index) => acc + val * vecB[index], 0);
+				return 1 - AdotB / (normA * normB);
+			}
+
+			async function askQuestion() {
+				const articles = JSON.parse(localStorage.getItem("articles"));
+
+				const question = document.getElementById('question').value;
+				const apiKey = document.getElementById('openAIAPIKey').value;
+				const embedding = await getEmbedding(question, apiKey);
+
+				articles.forEach(article => article.distance = cosinusDistance(article.embedding, embedding));
+				articles.sort((articleA, articleB) => articleA.distance - articleB.distance);
+				const relevantArticles = articles.slice(0, 3);
+
+				relevantArticles.forEach(article => {
+					document.getElementById('answer').innerHTML += `<div><a href="${article.url}">${article.title}</a></div>`;
+				});
+				document.getElementById('answer').innerHTML += '<br><br>';
+
+				const messages = [{
+					'role': 'system',
+					'content': 'Du beantwortest Fragen über die Vereinssoftware Webling wertschätzend, ausfühlich und in Du-Form.\n' +
+						'Zum Beantworten der Fragen darfst du nur Informationen aus den Prompt verwenden.\n' +
+						'Falls du die Frage nicht ausschliesslich mit den Infromationen aus dem Prompt beantworten kannst, antwort mit "Ich weiss es nicht."\n' +
+						'Du bist ein Supportmitarbeiter von Webling. Du Beantfortest fragen abschliessend.'
+				}];
+				let userPrompt = `Beantworte die Frage ausschliesslich mit den Informationen aus dem Prompt.\n """${question}""\n\n` +
+					'Dokumentation der Vereinssoftware Webling:'
+				articles.slice(0, 3).forEach(article => {
+					userPrompt += `${article.title}\n\n${article.body}\n`
+				});
+				messages.push({ 'role': 'user', 'content': userPrompt })
+
+				const response = await fetch("https://api.openai.com/v1/chat/completions", {
+					method: "POST",
+					headers: {
+						'Content-Type': "application/json",
+						Authorization: `Bearer ${apiKey}`,
+					},
+					body: JSON.stringify({
+						model: "gpt-4",
+						temperature: 0,
+						messages
+					}),
+				});
+
+				if (!response.ok) {
+					console.error(`Error: ${response.statusText}`);
+					return;
+				}
+
+				const data = await response.json();
+				console.log(data.choices[0].message.content);
+
+				document.getElementById('answer').innerHTML += `<pre>${data.choices[0].message.content}</pre>`;
+			}
+
+			// async function scrapeDoc() {
+			// 	scrapePage(document.getElementById('entryPoint').value);
+			// }
+			// async function scrapePage(url) {
+			// 	try {
+			// 		const response = await fetch(url, { mode: 'cors' });
+			// 		const html = await response.text();
+			// 		const parser = new DOMParser();
+			// 		const doc = parser.parseFromString(html, 'text/html');
+			// 		const links = doc.querySelectorAll('a[href]');
+			// 		links.forEach(link => {
+			// 		  console.log(link.href);
+			// 		});
+			// 	} catch (error) {
+			// 		console.error(error);
+			// 	}
+			// }
+
+
+			function onDOMContentLoaded() {
+				document.removeEventListener('DOMContentLoaded', onDOMContentLoaded);
+				document.getElementById('scrape').addEventListener('click', scrapeDoc);
+				document.getElementById('ask').addEventListener('click', askQuestion);
+
+				if (sessionStorage.getItem("openAIAPIKey")) {
+					document.getElementById('openAIAPIKey').value = sessionStorage.getItem("openAIAPIKey");
+				}
+				if (sessionStorage.getItem("zendeskArticleUri")) {
+					document.getElementById('zendeskArticleUri').value = sessionStorage.getItem("zendeskArticleUri");
+				}
+			}
+			document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
+		</script>
+	</head>
+	<body>
+		<div>
+			<label for="openAIAPIKey">OpenApiKey</label>
+			<input id="openAIAPIKey">
+		</div>
+		<div>
+			<label for="zendeskArticleUri">Zendesk Helpcenter API</label>
+			<input id="zendeskArticleUri">
+		</div>
+		<div>
+			<button id="scrape">Scrape</button>
+		</div>
+		<br><br><br>
+		<div>
+			<label for="question">Ask</label>
+			<input style="width: 400px" id="question" value="Wie erstelle ich einen neuen Benutzer">
+		</div>
+		<div>
+			<button id="ask">Ask</button>
+		</div>
+		<div id="answer"></div>
+
+<!--		<div>-->
+<!--			<label for="baseUrl">Base URL</label>-->
+<!--			<input id="baseUrl" placeholder="https://docs.github.com/en"-->
+<!--			>-->
+<!--		</div>-->
+<!--		<div>-->
+<!--			<label for="entryPoint">Entry point</label>-->
+<!--			<input id="entryPoint" placeholder="https://docs.github.com/en"-->
+<!--			>-->
+<!--		</div>-->
+<!--		<div>-->
+<!--			<button id="scrape">Scrape</button>-->
+<!--		</div>-->
+<!--		<div>-->
+<!--			<ul id="scraped"></ul>-->
+<!--		</div>-->
+	</body>
+</html>
