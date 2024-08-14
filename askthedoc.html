@@ -53,7 +53,7 @@
 				-webkit-tap-highlight-color: transparent; /* Otherwise, tapping will show a flash of grey background on iOS Safari; see https://twitter.com/masa_kudamatsu/status/1429387005658468356 */
 			}
 			.block input {
-				width: calc(100% - 100px);
+				width: calc(100% - 105px);
 			}
 			.block input:focus {
 				outline: 1px solid #c28cb9; /* fallback for forced color modes; see https://www.sarasoueidan.com/blog/focus-indicators/#tips-for-styling-focus-indicators */
@@ -70,16 +70,22 @@
 				-webkit-appearance: none; /* Remove default */
 			}
 
-			.settings > div::before {
-				content: url("data:image/svg+xml; utf8, <svg height=\"32\" viewBox=\"0 0 160 160\" xmlns=\"http://www.w3.org/2000/svg\">  <g transform=\"matrix(1.0134479999542236, 0, 0, 1.0134479999542236, -2435.491943359375, -1047.81884765625)\">  <path style=\"fill: rgb(194 140 185)\" d=\"M2488.9006348,1054.3352051   c6.4040527,5.7756348,8.8164062,14.7755127,6.159668,22.9799805l-5.432373,16.7751465   c-3.2304688,9.9760742-5.6503906,10.7648926-14.1398926,4.6098633l-14.2290039-10.3166504   c-6.9731445-5.0556641-10.329834-13.7333984-8.5739746-22.1655273l4.5449219-21.8260498   c2.4289551-11.6655273,6.3056641-12.932373,15.1542969-4.9520264L2488.9006348,1054.3352051z M2552.9467773,1075.3902588   c4.8554688-10.8817139,2.4526367-14.177124-9.3925781-12.8824463l-22.1621094,2.4222412   c-8.5622559,0.935791-15.777832,6.8096924-18.4313965,15.0039062l-5.4145508,16.7205811   c-3.2304688,9.9759521-1.7324219,12.0249023,8.7536621,12.0146484h17.6328125   c8.6240234-0.0085449,16.4377441-5.0926514,19.9519043-12.9682617L2552.9467773,1075.3902588z M2543.651123,1163.1190186   c11.8496094,1.2550049,14.2412109-2.0483398,9.3496094-12.9138184l-9.1523438-20.3289795   c-3.5356445-7.8538818-11.3518066-12.9012451-19.9650879-12.8927002l-17.5754395,0.017334   c-10.4858398,0.010376-11.9799805,2.0710449-8.7297363,12.0405273l5.465332,16.7645264   c2.6730957,8.1992188,9.9147949,14.0622559,18.4907227,14.9705811L2543.651123,1163.1190186z M2457.34375,1181.3879395   c2.4680176,11.6574707,6.348877,12.9112549,15.1708984,4.9013672l16.5058594-14.9862061   c6.376709-5.7897949,8.7617188-14.7830811,6.092041-22.9720459l-5.4475098-16.7098389   c-3.2502441-9.9696045-5.6716309-10.7537842-14.1489258-4.5819092l-14.255127,10.378418   c-6.9719238,5.0759277-10.3103027,13.7749023-8.5239258,22.2119141L2457.34375,1181.3879395z M2413.2983398,1104.9501953   c-10.3239746,5.949585-10.3171387,10.027832,0.0266113,15.9429932l19.3535156,11.0668945   c7.4768066,4.2756348,16.7670898,3.7647705,23.7302246-1.3046875l14.2084961-10.3446045   c8.4772949-6.171875,8.4748535-8.7172852-0.0146484-14.8724365l-14.2753906-10.3502197   c-6.9819336-5.0621338-16.2868652-5.5489502-23.7587891-1.2429199L2413.2983398,1104.9501953z\"/></g></svg>");
+			.settings.regular > div::before {
+				content: url("data:image/svg+xml; utf8, <svg height=\"48\" width=\"32\" viewBox=\"0 0 160 160\" xmlns=\"http://www.w3.org/2000/svg\">  <g transform=\"matrix(1.0134479999542236, 0, 0, 1.0134479999542236, -2435.491943359375, -1047.81884765625)\">  <path style=\"fill: rgb(194 140 185)\" d=\"M2488.9006348,1054.3352051   c6.4040527,5.7756348,8.8164062,14.7755127,6.159668,22.9799805l-5.432373,16.7751465   c-3.2304688,9.9760742-5.6503906,10.7648926-14.1398926,4.6098633l-14.2290039-10.3166504   c-6.9731445-5.0556641-10.329834-13.7333984-8.5739746-22.1655273l4.5449219-21.8260498   c2.4289551-11.6655273,6.3056641-12.932373,15.1542969-4.9520264L2488.9006348,1054.3352051z M2552.9467773,1075.3902588   c4.8554688-10.8817139,2.4526367-14.177124-9.3925781-12.8824463l-22.1621094,2.4222412   c-8.5622559,0.935791-15.777832,6.8096924-18.4313965,15.0039062l-5.4145508,16.7205811   c-3.2304688,9.9759521-1.7324219,12.0249023,8.7536621,12.0146484h17.6328125   c8.6240234-0.0085449,16.4377441-5.0926514,19.9519043-12.9682617L2552.9467773,1075.3902588z M2543.651123,1163.1190186   c11.8496094,1.2550049,14.2412109-2.0483398,9.3496094-12.9138184l-9.1523438-20.3289795   c-3.5356445-7.8538818-11.3518066-12.9012451-19.9650879-12.8927002l-17.5754395,0.017334   c-10.4858398,0.010376-11.9799805,2.0710449-8.7297363,12.0405273l5.465332,16.7645264   c2.6730957,8.1992188,9.9147949,14.0622559,18.4907227,14.9705811L2543.651123,1163.1190186z M2457.34375,1181.3879395   c2.4680176,11.6574707,6.348877,12.9112549,15.1708984,4.9013672l16.5058594-14.9862061   c6.376709-5.7897949,8.7617188-14.7830811,6.092041-22.9720459l-5.4475098-16.7098389   c-3.2502441-9.9696045-5.6716309-10.7537842-14.1489258-4.5819092l-14.255127,10.378418   c-6.9719238,5.0759277-10.3103027,13.7749023-8.5239258,22.2119141L2457.34375,1181.3879395z M2413.2983398,1104.9501953   c-10.3239746,5.949585-10.3171387,10.027832,0.0266113,15.9429932l19.3535156,11.0668945   c7.4768066,4.2756348,16.7670898,3.7647705,23.7302246-1.3046875l14.2084961-10.3446045   c8.4772949-6.171875,8.4748535-8.7172852-0.0146484-14.8724365l-14.2753906-10.3502197   c-6.9819336-5.0621338-16.2868652-5.5489502-23.7587891-1.2429199L2413.2983398,1104.9501953z\"/></g></svg>");
+			}
+			.settings.loading > div::before {
+				content: url("data:image/svg+xml; utf8, <svg height=\"48\" width=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\"><path style=\"fill: rgb(194 140 185)\" d=\"M20.27,4.74a4.93,4.93,0,0,1,1.52,4.61,5.32,5.32,0,0,1-4.1,4.51,5.12,5.12,0,0,1-5.2-1.5,5.53,5.53,0,0,0,6.13-1.48A5.66,5.66,0,0,0,20.27,4.74ZM12.32,11.53a5.49,5.49,0,0,0-1.47-6.2A5.57,5.57,0,0,0,4.71,3.72,5.17,5.17,0,0,1,9.53,2.2,5.52,5.52,0,0,1,13.9,6.45,5.28,5.28,0,0,1,12.32,11.53ZM19.2,20.29a4.92,4.92,0,0,1-4.72,1.49,5.32,5.32,0,0,1-4.34-4.05A5.2,5.2,0,0,1,11.6,12.5a5.6,5.6,0,0,0,1.51,6.13A5.63,5.63,0,0,0,19.2,20.29ZM3.79,19.38A5.18,5.18,0,0,1,2.32,14a5.3,5.3,0,0,1,4.59-4,5,5,0,0,1,4.58,1.61,5.55,5.55,0,0,0-6.32,1.69A5.46,5.46,0,0,0,3.79,19.38ZM12.23,12a5.11,5.11,0,0,0,3.66-5,5.75,5.75,0,0,0-3.18-6,5,5,0,0,1,4.42,2.3,5.21,5.21,0,0,1,.24,5.92A5.4,5.4,0,0,1,12.23,12ZM11.76,12a5.18,5.18,0,0,0-3.68,5.09,5.58,5.58,0,0,0,3.19,5.79c-1,.35-2.9-.46-4-1.68A5.51,5.51,0,0,1,11.76,12ZM23,12.63a5.07,5.07,0,0,1-2.35,4.52,5.23,5.23,0,0,1-5.91.2,5.24,5.24,0,0,1-2.67-4.77,5.51,5.51,0,0,0,5.45,3.33A5.52,5.52,0,0,0,23,12.63ZM1,11.23a5,5,0,0,1,2.49-4.5,5.23,5.23,0,0,1,5.81-.06,5.3,5.3,0,0,1,2.61,4.74A5.56,5.56,0,0,0,6.56,8.06,5.71,5.71,0,0,0,1,11.23Z\"><animateTransform attributeName=\"transform\" type=\"rotate\" dur=\"1.5s\" values=\"0 12 12;360 12 12\" repeatCount=\"indefinite\"/></path></svg>");
 			}
 			.settings input,
 			.settings button {
 				margin-top: 10px;
 			}
 
-			.question > div::before {
-				content: url("data:image/svg+xml; utf8, <svg height=\"32\" viewBox=\"1698.517 1726.119 144.773 159.82\" xmlns=\"http://www.w3.org/2000/svg\"><g transform=\"matrix(1.0886629819869995, 0, 0, 1.0886629819869995, -155.798095703125, -157.76962280273415)\"><path style=\"fill: rgb(194 140 185)\" d=\"M1748.4763184,1774.0247803   c0-11.4031982,9.27771-20.6809082,20.6807861-20.6809082c2.4433594,0,4.4248047,1.9815674,4.4248047,4.4249268   c0,2.4434814-1.9814453,4.4250488-4.4248047,4.4250488c-6.5239258,0-11.8309326,5.3068848-11.8309326,11.8309326   c0,2.4434814-1.9815674,4.4246826-4.4249268,4.4246826S1748.4763184,1776.4682617,1748.4763184,1774.0247803z    M1800.777832,1823.6722412c-2.3624268-0.9191895-5.0013428-0.8092041-7.2786865,0.3035889   c-7.3514404,3.5932617-15.6080322,5.6185303-24.3419189,5.6185303s-16.9904785-2.0252686-24.3419189-5.6185303   c-2.276123-1.1123047-4.9177246-1.2219238-7.2788086-0.3035889c-18.0174561,7.0070801-30.994873,21.0192871-34.0220947,43.1983643   c-0.3544922,2.5977783,0.4416504,5.2241211,2.166748,7.1983643c1.7249756,1.9741211,4.2175293,3.1083984,6.8391113,3.1083984   h113.2736816c2.6237793,0,5.1207275-1.1297607,6.8470459-3.1053467c1.7263184-1.9759521,2.5137939-4.6018066,2.1589355-7.201416   C1831.772583,1844.6915283,1818.7952881,1830.6793213,1800.777832,1823.6722412z M1725.7471924,1774.0247803   c0-23.9362793,19.4736328-43.4100342,43.4099121-43.4100342s43.4100342,19.4737549,43.4100342,43.4100342   c0,6.4663086-1.4315186,12.6014404-3.9779053,18.1204834l24.3453369,16.5560303   c3.2838135,2.2327881,4.135376,6.7044678,1.9016113,9.9882812c-1.3903809,2.0456543-3.6507568,3.1467285-5.9510498,3.1467285   c-1.3924561,0-2.7991943-0.402832-4.0372314-1.2452393l-24.3599854-16.565918   c-7.9072266,8.2546387-19.0247803,13.4102783-31.3308105,13.4102783   C1745.2208252,1817.4354248,1725.7471924,1797.9619141,1725.7471924,1774.0247803z M1739.0209961,1774.0247803   c0,16.6174316,13.5185547,30.1368408,30.1361084,30.1368408s30.1362305-13.5194092,30.1362305-30.1368408   c0-16.6175537-13.5186768-30.1362305-30.1362305-30.1362305S1739.0209961,1757.4072266,1739.0209961,1774.0247803z\"/></g></svg>");
+			.question.regular > div::before {
+				content: url("data:image/svg+xml; utf8, <svg height=\"48\" width=\"32\" viewBox=\"1698.517 1726.119 144.773 159.82\" xmlns=\"http://www.w3.org/2000/svg\"><g transform=\"matrix(1.0886629819869995, 0, 0, 1.0886629819869995, -155.798095703125, -157.76962280273415)\"><path style=\"fill: rgb(194 140 185)\" d=\"M1748.4763184,1774.0247803   c0-11.4031982,9.27771-20.6809082,20.6807861-20.6809082c2.4433594,0,4.4248047,1.9815674,4.4248047,4.4249268   c0,2.4434814-1.9814453,4.4250488-4.4248047,4.4250488c-6.5239258,0-11.8309326,5.3068848-11.8309326,11.8309326   c0,2.4434814-1.9815674,4.4246826-4.4249268,4.4246826S1748.4763184,1776.4682617,1748.4763184,1774.0247803z    M1800.777832,1823.6722412c-2.3624268-0.9191895-5.0013428-0.8092041-7.2786865,0.3035889   c-7.3514404,3.5932617-15.6080322,5.6185303-24.3419189,5.6185303s-16.9904785-2.0252686-24.3419189-5.6185303   c-2.276123-1.1123047-4.9177246-1.2219238-7.2788086-0.3035889c-18.0174561,7.0070801-30.994873,21.0192871-34.0220947,43.1983643   c-0.3544922,2.5977783,0.4416504,5.2241211,2.166748,7.1983643c1.7249756,1.9741211,4.2175293,3.1083984,6.8391113,3.1083984   h113.2736816c2.6237793,0,5.1207275-1.1297607,6.8470459-3.1053467c1.7263184-1.9759521,2.5137939-4.6018066,2.1589355-7.201416   C1831.772583,1844.6915283,1818.7952881,1830.6793213,1800.777832,1823.6722412z M1725.7471924,1774.0247803   c0-23.9362793,19.4736328-43.4100342,43.4099121-43.4100342s43.4100342,19.4737549,43.4100342,43.4100342   c0,6.4663086-1.4315186,12.6014404-3.9779053,18.1204834l24.3453369,16.5560303   c3.2838135,2.2327881,4.135376,6.7044678,1.9016113,9.9882812c-1.3903809,2.0456543-3.6507568,3.1467285-5.9510498,3.1467285   c-1.3924561,0-2.7991943-0.402832-4.0372314-1.2452393l-24.3599854-16.565918   c-7.9072266,8.2546387-19.0247803,13.4102783-31.3308105,13.4102783   C1745.2208252,1817.4354248,1725.7471924,1797.9619141,1725.7471924,1774.0247803z M1739.0209961,1774.0247803   c0,16.6174316,13.5185547,30.1368408,30.1361084,30.1368408s30.1362305-13.5194092,30.1362305-30.1368408   c0-16.6175537-13.5186768-30.1362305-30.1362305-30.1362305S1739.0209961,1757.4072266,1739.0209961,1774.0247803z\"/></g></svg>");
+			}
+			.question.loading > div::before {
+				content: url("data:image/svg+xml; utf8, <svg height=\"48\" width=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\"><path style=\"fill: rgb(194 140 185)\" d=\"M20.27,4.74a4.93,4.93,0,0,1,1.52,4.61,5.32,5.32,0,0,1-4.1,4.51,5.12,5.12,0,0,1-5.2-1.5,5.53,5.53,0,0,0,6.13-1.48A5.66,5.66,0,0,0,20.27,4.74ZM12.32,11.53a5.49,5.49,0,0,0-1.47-6.2A5.57,5.57,0,0,0,4.71,3.72,5.17,5.17,0,0,1,9.53,2.2,5.52,5.52,0,0,1,13.9,6.45,5.28,5.28,0,0,1,12.32,11.53ZM19.2,20.29a4.92,4.92,0,0,1-4.72,1.49,5.32,5.32,0,0,1-4.34-4.05A5.2,5.2,0,0,1,11.6,12.5a5.6,5.6,0,0,0,1.51,6.13A5.63,5.63,0,0,0,19.2,20.29ZM3.79,19.38A5.18,5.18,0,0,1,2.32,14a5.3,5.3,0,0,1,4.59-4,5,5,0,0,1,4.58,1.61,5.55,5.55,0,0,0-6.32,1.69A5.46,5.46,0,0,0,3.79,19.38ZM12.23,12a5.11,5.11,0,0,0,3.66-5,5.75,5.75,0,0,0-3.18-6,5,5,0,0,1,4.42,2.3,5.21,5.21,0,0,1,.24,5.92A5.4,5.4,0,0,1,12.23,12ZM11.76,12a5.18,5.18,0,0,0-3.68,5.09,5.58,5.58,0,0,0,3.19,5.79c-1,.35-2.9-.46-4-1.68A5.51,5.51,0,0,1,11.76,12ZM23,12.63a5.07,5.07,0,0,1-2.35,4.52,5.23,5.23,0,0,1-5.91.2,5.24,5.24,0,0,1-2.67-4.77,5.51,5.51,0,0,0,5.45,3.33A5.52,5.52,0,0,0,23,12.63ZM1,11.23a5,5,0,0,1,2.49-4.5,5.23,5.23,0,0,1,5.81-.06,5.3,5.3,0,0,1,2.61,4.74A5.56,5.56,0,0,0,6.56,8.06,5.71,5.71,0,0,0,1,11.23Z\"><animateTransform attributeName=\"transform\" type=\"rotate\" dur=\"1.5s\" values=\"0 12 12;360 12 12\" repeatCount=\"indefinite\"/></path></svg>");
 			}
 			.question .icon {
 				height: 30px;
@@ -113,13 +119,12 @@
 		</style>
 
 		<script type="module">
-			// more images https://cdn.dribbble.com/users/1019/screenshots/19689206/downloads/38%20Free%20Logos%20-%20By%20Larkef.svg
-			// color palett generator https://mycolor.space/?hex=%23010C28&sub=1
-			// svg editor: https://boxy-svg.com/app
+			let articleCache = null;
+			let answerRunning = false;
 
 			async function compressData(data) {
 				const stream = new Blob([JSON.stringify(data)]).stream();
-				const compressionStream = stream.pipeThrough(new CompressionStream("gzip"));
+				const compressionStream = stream.pipeThrough(new CompressionStream('gzip'));
 				const buffer = await new Response(compressionStream).arrayBuffer();
 				return btoa([].reduce.call(new Uint8Array(buffer), (p, c) => p + String.fromCharCode(c), ''));
 			}
@@ -131,12 +136,62 @@
 			        bytes[i] = binaryString.charCodeAt(i);
 			    }
 				const stream = new Blob([bytes]).stream();
-				const decompressionStream = stream.pipeThrough(new DecompressionStream("gzip"));
+				const decompressionStream = stream.pipeThrough(new DecompressionStream('gzip'));
 				const buffer = await new Response(decompressionStream).arrayBuffer();
 				return JSON.parse(new TextDecoder().decode(new Uint8Array(buffer)));
 			}
 
+			async function openIndexedDB() {
+			    return new Promise((resolve, reject) => {
+			        let request = indexedDB.open('askthedoc', 1);
+
+			        request.onupgradeneeded = event => {
+			            let db = event.target.result;
+			            if (!db.objectStoreNames.contains('articles')) {
+			                db.createObjectStore('articles', { autoIncrement: true });
+			            }
+			        };
+
+			        request.onsuccess = event => {
+			            let db = event.target.result;
+			            resolve(db);
+			        };
+
+			        request.onerror = event => {
+			            reject(event.target.errorCode);
+			        };
+			    });
+			}
+
+			async function saveArticles(articles) {
+			    let db = await openIndexedDB();
+			    return new Promise((resolve, reject) => {
+			        let transaction = db.transaction('articles', 'readwrite');
+			        let store = transaction.objectStore('articles');
+			        articles.forEach(article => store.add(article));
+
+			        transaction.oncomplete = () => resolve();
+			        transaction.onerror = event => reject(event.target.errorCode);
+			    });
+			}
+
+			async function loadArticles() {
+				let db = await openIndexedDB();
+			    return new Promise(async (resolve, reject) => {
+			        let transaction = db.transaction('articles', 'readonly');
+			        let store = transaction.objectStore('articles');
+			        let allRecords = store.getAll();
+
+			        allRecords.onsuccess = () => resolve(allRecords.result);
+			        allRecords.onerror = event => reject(event.target.errorCode);
+			    });
+			}
+
 			async function scrapeDoc() {
+				document.getElementById('settings').classList.remove('regular');
+				document.getElementById('settings').classList.add('loading');
+				document.getElementById('scrape').style.display = 'none';
+
 				const articleUrl = document.getElementById('zendeskArticleUri').value;
 				const openAIAPIKey = document.getElementById('openAIAPIKey').value;
 
@@ -145,13 +200,21 @@
 					return;
 				}
 
-				sessionStorage.setItem("zendeskArticleUri", articleUrl);
-				sessionStorage.setItem("openAIAPIKey", openAIAPIKey);
+				sessionStorage.setItem('zendeskArticleUri', articleUrl);
+				sessionStorage.setItem('openAIAPIKey', openAIAPIKey);
 
 				const articles = await scrapePage(document.getElementById('zendeskArticleUri').value);
 				await addEmbeddings(articles, openAIAPIKey);
-				const compressed = await compressData(articles);
-				localStorage.setItem("articles", compressed);
+				// const compressed = await compressData(articles);
+				// localStorage.setItem('articles', compressed);
+
+				console.log(articles.length);
+
+				await saveArticles(articles);
+				articleCache = articles;
+
+				document.getElementById('settings').style.display = 'none';
+				document.getElementById('question').style.visibility = 'visible';
 
 				console.log('done')
 			}
@@ -199,7 +262,7 @@
 								id: article.id,
 								title: article.title,
 								body: chunk.trim(),
-								url: article.url
+								url: article.html_url
 							})
 						})
 					});
@@ -212,9 +275,13 @@
 			}
 
 			async function addEmbeddings(articles, apiKey) {
-				await Promise.all(articles.map(async article => {
-					article.embedding = await getEmbedding(article.body, apiKey);
-				}));
+				let start = 0;
+				while (start < articles.length) {
+					await Promise.all(articles.slice(start, start + 32).map(async article => {
+						article.embedding = await getEmbedding(article.body, apiKey);
+					}));
+					start += 32;
+				}
 			}
 
 			async function getEmbedding(content, apiKey) {
@@ -227,7 +294,7 @@
 					},
 					body: JSON.stringify({
 						'input': content,
-						'model': 'text-embedding-ada-002'
+						'model': 'text-embedding-3-large'
 					})
 				});
 				const json = await response.json();
@@ -242,140 +309,159 @@
 			}
 
 			async function askQuestion() {
-				const articles = await decompressData(localStorage.getItem("articles"));
-
-				const question = document.querySelector('.question input').value;
-				const apiKey = document.getElementById('openAIAPIKey').value;
-
-				const hallucinatedResponse = await fetch("https://api.openai.com/v1/completions", {
-					method: "POST",
-					headers: {
-						'Content-Type': "application/json",
-						Authorization: `Bearer ${apiKey}`,
-					},
-					body: JSON.stringify({
-						model: "gpt-3.5-turbo-instruct",
-						temperature: 1.2,
-						max_tokens: 2048,
-						prompt: question
-					}),
-				});
-
-				let hallucinatedAnswer = '';
-				if (hallucinatedResponse.ok) {
-					const data = await hallucinatedResponse.json();
-					hallucinatedAnswer = data.choices[0].text;
+				if (answerRunning) {
+					return;
 				}
 
-				const embedding = await getEmbedding(`${question}\n\n${hallucinatedAnswer}`, apiKey);
+				try {
+					answerRunning = true;
 
-				articles.forEach(article => article.distance = cosinusDistance(article.embedding, embedding));
-				articles.sort((articleA, articleB) => articleA.distance - articleB.distance);
-				const relevantArticles = articles.slice(0, 3);
+					// const articles = await decompressData(localStorage.getItem("articles"));
+					const articles = articleCache.map(article => ({ ...article }));
 
-				// noinspection ES6MissingAwait
-				relevantArticles.forEach(async article => {
-					const el = document.createElement('div');
-					el.className = 'block source';
-					el.innerHTML = `<div><div><a href="${article.url}"><div class="title">${article.title}</div></a></div>`;
-					const afterEl = document.querySelector('.answer');
-					afterEl.parentNode.insertBefore(el, afterEl);
+					document.getElementById('question').classList.remove('regular');
+					document.getElementById('question').classList.add('loading');
 
-					const sourceResponse = await fetch("https://api.openai.com/v1/completions", {
+					document.querySelector('.answer').style.display = 'none';
+					document.querySelectorAll('.article-preview').forEach(element => {
+					    element.remove();
+					});
+
+					const question = document.querySelector('.question input').value;
+					const apiKey = document.getElementById('openAIAPIKey').value;
+
+					// const hallucinatedResponse = await fetch("https://api.openai.com/v1/completions", {
+					// 	method: "POST",
+					// 	headers: {
+					// 		'Content-Type': "application/json",
+					// 		Authorization: `Bearer ${apiKey}`,
+					// 	},
+					// 	body: JSON.stringify({
+					// 		model: "gpt-3.5-turbo-instruct",
+					// 		temperature: 1.2,
+					// 		max_tokens: 2048,
+					// 		prompt: question
+					// 	}),
+					// });
+					//
+					// let hallucinatedAnswer = '';
+					// if (hallucinatedResponse.ok) {
+					// 	const data = await hallucinatedResponse.json();
+					// 	hallucinatedAnswer = data.choices[0].text;
+					// }
+					//
+					// const embedding = await getEmbedding(`${question}\n\n${hallucinatedAnswer}`, apiKey);
+					const embedding = await getEmbedding(question, apiKey);
+
+					articles.forEach(article => article.distance = cosinusDistance(article.embedding, embedding));
+					articles.sort((articleA, articleB) => articleA.distance - articleB.distance);
+					const relevantArticles = []
+					while (relevantArticles.length < 3 && articles.length) {
+						const article = articles.shift();
+						if (!relevantArticles.some(relevantArticle => relevantArticle.id === article.id)) {
+							relevantArticles.push(article);
+						}
+					}
+
+					// noinspection ES6MissingAwait
+					relevantArticles.forEach(async article => {
+						const el = document.createElement('div');
+						el.className = 'block source article-preview';
+						el.innerHTML = `<div><div><a target="_blank" href="${article.url}"><div class="title">${article.title}</div></a></div>`;
+						document.querySelector('.answer').insertAdjacentElement('afterend', el);
+
+						const sourceResponse = await fetch("https://api.openai.com/v1/chat/completions", {
+							method: "POST",
+							headers: {
+								'Content-Type': "application/json",
+								Authorization: `Bearer ${apiKey}`,
+							},
+							body: JSON.stringify({
+								model: "gpt-4o-mini",
+								temperature: 0,
+								max_tokens: 2048,
+								messages: [{
+									role: "user",
+									content: [{
+										type: "text",
+										text: `Schreib eine maximal 300 Zeichen Zusammenfassung des Artikels in Bezug auf die folgende Frage. Schreibe die Zusammenfassung in direkter Rede.\n """${question}""\n\nArtikel:\n ${article.body}`
+									}]
+								}]
+							}),
+						});
+
+						if (sourceResponse.ok) {
+							const data = await sourceResponse.json();
+							el.firstChild.firstChild.firstChild.innerHTML += `<div class="summary">${data.choices[0].message.content}<div>`;
+						}
+					});
+
+					const messages = [{
+						'role': 'system',
+						'content': 'Du beantwortest Fragen über die Vereinssoftware Webling wertschätzend, ausfühlich und in Du-Form.\n' +
+							'Zum Beantworten der Fragen darfst du nur Informationen aus den Prompt verwenden.\n' +
+							'Falls du die Frage nicht ausschliesslich mit den Infromationen aus dem Prompt beantworten kannst, antwort mit "Ich weiss es nicht."\n' +
+							'Du bist ein Supportmitarbeiter von Webling. Du Beantfortest fragen abschliessend.'
+					}];
+					let userPrompt = `Beantworte die Frage ausschliesslich mit den Informationen aus dem Prompt.\n """${question}""\n\n` +
+						'Dokumentation der Vereinssoftware Webling:'
+					articles.slice(0, 3).forEach(article => {
+						userPrompt += `${article.title}\n\n${article.body}\n`
+					});
+					messages.push({ 'role': 'user', 'content': userPrompt })
+
+					const answerResponse = await fetch("https://api.openai.com/v1/chat/completions", {
 						method: "POST",
 						headers: {
 							'Content-Type': "application/json",
 							Authorization: `Bearer ${apiKey}`,
 						},
 						body: JSON.stringify({
-							model: "gpt-3.5-turbo-instruct",
+							model: "gpt-4o",
 							temperature: 0,
-							max_tokens: 2048,
-							prompt: `Schreib eine maximal 300 Zeichen Zusammenfassung des Artikels in Bezug auf die folgende Frage. Schreibe die Zusammenfassung in direkter Rede.\n """${question}""\n\nArtikel:\n ${article.body}`
+							stream: true,
+							messages
 						}),
 					});
 
-					if (sourceResponse.ok) {
-						const data = await sourceResponse.json();
-						el.firstChild.firstChild.firstChild.innerHTML += `<div class="summary">${data.choices[0].text}<div>`;
-					}
-				});
+					const reader = answerResponse.body.pipeThrough(new TextDecoderStream()).getReader();
 
-				const messages = [{
-					'role': 'system',
-					'content': 'Du beantwortest Fragen über die Vereinssoftware Webling wertschätzend, ausfühlich und in Du-Form.\n' +
-						'Zum Beantworten der Fragen darfst du nur Informationen aus den Prompt verwenden.\n' +
-						'Falls du die Frage nicht ausschliesslich mit den Infromationen aus dem Prompt beantworten kannst, antwort mit "Ich weiss es nicht."\n' +
-						'Du bist ein Supportmitarbeiter von Webling. Du Beantfortest fragen abschliessend.'
-				}];
-				let userPrompt = `Beantworte die Frage ausschliesslich mit den Informationen aus dem Prompt.\n """${question}""\n\n` +
-					'Dokumentation der Vereinssoftware Webling:'
-				articles.slice(0, 3).forEach(article => {
-					userPrompt += `${article.title}\n\n${article.body}\n`
-				});
-				messages.push({ 'role': 'user', 'content': userPrompt })
-
-				const answerResponse = await fetch("https://api.openai.com/v1/chat/completions", {
-					method: "POST",
-					headers: {
-						'Content-Type': "application/json",
-						Authorization: `Bearer ${apiKey}`,
-					},
-					body: JSON.stringify({
-						model: "gpt-4",
-						temperature: 0,
-						stream: true,
-						messages
-					}),
-				});
-
-				const reader = answerResponse.body.pipeThrough(new TextDecoderStream()).getReader();
-
-				let answer = '';
-				document.querySelector('.answer').style.display = 'block';
-				while (true) {
-					const { value, done } = await reader.read();
-					if (done) break;
-					value.split('\n').forEach(line => {
-						if (line.startsWith('data:') && line !== 'data: [DONE]') {
-							try {
-								const data = JSON.parse(line.substring(5).trim());
-								const delta = data.choices[0].delta.content;
-								if (delta) {
-									answer += data.choices[0].delta.content;
-									document.querySelector('.answer .content').innerHTML = answer;
+					let answer = '';
+					document.querySelector('.answer').style.display = 'block';
+					while (true) {
+						const { value, done } = await reader.read();
+						if (done) break;
+						value.split('\n').forEach(line => {
+							if (line.startsWith('data:') && line !== 'data: [DONE]') {
+								try {
+									const data = JSON.parse(line.substring(5).trim());
+									const delta = data.choices[0].delta.content;
+									if (delta) {
+										answer += data.choices[0].delta.content;
+										document.querySelector('.answer .content').innerHTML = answer;
+									}
+								} catch (error) {
+									console.error(error, line);
 								}
-							} catch (error) {
-								console.error(error, line);
 							}
-						}
-					});
+						});
+					}
+				} finally {
+					answerRunning = false;
+					document.getElementById('question').classList.add('regular');
+					document.getElementById('question').classList.remove('loading');
 				}
 			}
 
-			// async function scrapeDoc() {
-			// 	scrapePage(document.getElementById('entryPoint').value);
-			// }
-			// async function scrapePage(url) {
-			// 	try {
-			// 		const response = await fetch(url, { mode: 'cors' });
-			// 		const html = await response.text();
-			// 		const parser = new DOMParser();
-			// 		const doc = parser.parseFromString(html, 'text/html');
-			// 		const links = doc.querySelectorAll('a[href]');
-			// 		links.forEach(link => {
-			// 		  console.log(link.href);
-			// 		});
-			// 	} catch (error) {
-			// 		console.error(error);
-			// 	}
-			// }
-
-
-			function onDOMContentLoaded() {
+			async function onDOMContentLoaded() {
 				document.removeEventListener('DOMContentLoaded', onDOMContentLoaded);
 				document.getElementById('scrape').addEventListener('click', scrapeDoc);
 				document.querySelector('.question .icon').addEventListener('click', askQuestion);
+				document.getElementById('search').addEventListener('keydown', event => {
+				    if (event.key === 'Enter') {
+				        askQuestion();
+				    }
+				});
 
 				if (sessionStorage.getItem("openAIAPIKey")) {
 					document.getElementById('openAIAPIKey').value = sessionStorage.getItem("openAIAPIKey");
@@ -383,13 +469,22 @@
 				if (sessionStorage.getItem("zendeskArticleUri")) {
 					document.getElementById('zendeskArticleUri').value = sessionStorage.getItem("zendeskArticleUri");
 				}
+
+				let articles = await loadArticles()
+				if (articles.length) {
+					articleCache = articles
+					document.getElementById('settings').style.display = 'none';
+					document.getElementById('question').style.visibility = 'visible';
+				} else {
+					document.getElementById('settings').style.visibility = 'visible';
+				}
 			}
 			document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
 		</script>
 	</head>
 	<body>
 		<div class="content">
-			<div class="block settings">
+			<div id="settings" class="block settings regular" style="visibility: hidden">
 				<div>
 					<div>
 						<div>
@@ -406,14 +501,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="block question">
+			<div id="question" class="block question regular" style="visibility: hidden">
 				<div>
-					<input autocomplete="off" inputmode="search" placeholder="Ask the source" type="search"
-
-
-	value="Wie erstelle ich einen neuen Benutze"
-
-					>
+					<input id="search" autocomplete="off" inputmode="search" placeholder="Wie gebe ich einem Benutzer nur Rechte auf die Buchhaltung?" type="search">
 					<svg class="icon" viewBox="0 0 24 24">
 						<path style="fill: rgb(194 140 185)" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
 					</svg>
@@ -425,22 +515,5 @@
 				</div>
 			</div>
 		</div>
-
-<!--		<div>-->
-<!--			<label for="baseUrl">Base URL</label>-->
-<!--			<input id="baseUrl" placeholder="https://docs.github.com/en"-->
-<!--			>-->
-<!--		</div>-->
-<!--		<div>-->
-<!--			<label for="entryPoint">Entry point</label>-->
-<!--			<input id="entryPoint" placeholder="https://docs.github.com/en"-->
-<!--			>-->
-<!--		</div>-->
-<!--		<div>-->
-<!--			<button id="scrape">Scrape</button>-->
-<!--		</div>-->
-<!--		<div>-->
-<!--			<ul id="scraped"></ul>-->
-<!--		</div>-->
 	</body>
 </html>
